@@ -15,7 +15,6 @@ class Grafo
             this->numVertices = numVertices;
             adj = new list<int>[numVertices]; //lista pra cada vertice
         }
-
         void adicionarAresta(int vertice1,int vertice2)
         {
             adj[vertice1].push_back(vertice2);
