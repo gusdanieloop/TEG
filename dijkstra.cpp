@@ -84,14 +84,35 @@ void Grafo::dijkstra(int origem, int objetivo)
 
 int main()
 {
-    Grafo grafo = Grafo(4);
-    grafo.adicionar(0,6,3);
-    grafo.adicionar(0,3,1);
-    grafo.adicionar(1,1,2);
-    grafo.adicionar(2,1,3);
-    grafo.dijkstra(0,3);
-    puts("esse foi o menor!");
-    grafo.dijkstra(0,3);
-    puts("esse o segundo menor!");
+    int vertices;
+    cout << "Quantos vertices tem o grafo?";
+    cin >> vertices;
+    Grafo grafo = Grafo(vertices);
+    cout << "use -1 para não adicionar vertice";
+
+    int peso;
+    for(int x=0; x < vertices; x++){
+        for(int y=0; y < vertices; y++){
+            cout << "A interseção" << x << 'x' << y << "tem peso: ";
+            cin >> peso;
+            cout << endl;
+            if(peso!=-1){
+                grafo.adicionar(x,peso,y);
+            }
+        }
+    }
+    cout << endl << endl << endl << endl << endl;
+
+    int inicio,fim;
+    cout << "De que vertice até que vertice deve ser a procura?" <<endl;
+    cout << "INCIO: ";
+    cin >> inicio;
+    cout << "FIM: ";
+    cin >> fim; 
+    cout << endl << endl;
+    cout << "esse foi o menor:";
+    grafo.dijkstra(inicio,fim);
+    cout << "esse o segundo menor:";
+    grafo.dijkstra(inicio,fim);
     return 0;
 }
